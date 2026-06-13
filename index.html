@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>数据驱动的聚合物瓣膜智能制造系统</title>
+    <link rel="stylesheet" href="./styles.css?v=browser-comments-20260613-title-scale" />
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <header class="topbar">
+        <div class="status">
+          <span class="pulse"></span>
+          <span>数据库状态：</span>
+          <strong>正常运行</strong>
+        </div>
+        <div class="title-block">
+          <div class="title-line"></div>
+          <h1>数据驱动的聚合物瓣膜智能制造系统</h1>
+          <p>Data-driven Polymer Heart Valve Design and Manufacturing System</p>
+        </div>
+        <div class="clock">
+          <span>更新时间：</span>
+          <strong id="liveTime">2025-05-21 14:35:28</strong>
+        </div>
+      </header>
+
+      <nav class="control-strip" aria-label="数据大屏控制">
+        <div class="segmented" role="group" aria-label="模块筛选">
+          <button class="control-btn is-active" data-filter="all" type="button">全部</button>
+          <button class="control-btn" data-filter="genes" type="button">瓣膜材料</button>
+          <button class="control-btn" data-filter="calcification" type="button">瓣架材料</button>
+          <button class="control-btn" data-filter="mining" type="button">制造平台</button>
+        </div>
+        <button class="icon-btn" id="refreshBtn" type="button" aria-label="刷新数据" title="刷新数据">
+          <span aria-hidden="true">↻</span>
+        </button>
+      </nav>
+
+      <main class="dashboard-grid">
+        <section class="panel panel-left-top" data-panel="genes">
+          <div class="panel-heading">
+            <span class="panel-index">1</span>
+            <h2>瓣膜智能制造平台</h2>
+          </div>
+          <div class="material-upload-section">
+            <h3>生物瓣材料</h3>
+            <div id="bioUploadCards" class="upload-material-grid"></div>
+          </div>
+          <div class="merged-materials">
+            <h3>合成瓣材料</h3>
+            <div id="syntheticCards" class="material-grid"></div>
+          </div>
+          <div class="split-layout compact synthetic-merged">
+            <div class="chart-box">
+              <h3>材料性能对比</h3>
+              <canvas id="radarChart"></canvas>
+            </div>
+            <div class="mini-table-wrap">
+              <h3>关键性能指标（平均值）</h3>
+              <table id="syntheticTable"></table>
+            </div>
+          </div>
+        </section>
+
+        <section class="hero-stage" data-panel="hero">
+          <div id="kpiRow" class="kpi-row"></div>
+
+          <div class="stage-card">
+            <div class="scan-ring ring-one"></div>
+            <div class="scan-ring ring-two"></div>
+            <div class="valve-visual">
+              <img src="./assets/valve-core.png" alt="机械瓣膜三维展示" />
+            </div>
+            <div class="hotspot hotspot-a">
+              <span>结构类型</span>
+              <strong>三叶式</strong>
+            </div>
+            <div class="hotspot hotspot-b">
+              <span>材料类别</span>
+              <strong>心包，高分子</strong>
+            </div>
+            <div class="hotspot hotspot-c">
+              <span>尺寸范围</span>
+              <strong>19-29 mm</strong>
+            </div>
+            <div class="hotspot hotspot-d">
+              <span>使用寿命</span>
+              <strong>10-20 年</strong>
+            </div>
+            <div class="hotspot hotspot-e">
+              <span>抗钙化等级</span>
+              <strong>★★★★☆</strong>
+            </div>
+            <div class="hotspot hotspot-f">
+              <span>耐久性评分</span>
+              <strong>92/100</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-right-top" data-panel="calcification">
+          <div class="panel-heading">
+            <span class="panel-index">2</span>
+            <h2>瓣架智能制造平台</h2>
+          </div>
+          <div class="valve-frame-database">
+            <div class="testing-video-grid" aria-label="瓣架材料视频上传区">
+              <label class="upload-drop testing-video-upload has-video" for="frameVideoInput1" aria-label="上传瓣架材料视频 1">
+                <input id="frameVideoInput1" type="file" accept="image/*,video/*" data-preview="frameVideoPreview1" />
+                <img id="frameVideoPreview1" alt="瓣架材料视频 1 预览" />
+                <video class="upload-video-preview" src="./assets/uploads/6bwf8-kxjbc.mp4" autoplay loop muted playsinline></video>
+              </label>
+              <label class="upload-drop testing-video-upload has-video" for="frameVideoInput2" aria-label="上传瓣架材料视频 2">
+                <input id="frameVideoInput2" type="file" accept="image/*,video/*" data-preview="frameVideoPreview2" />
+                <img id="frameVideoPreview2" alt="瓣架材料视频 2 预览" />
+                <video class="upload-video-preview" src="./assets/uploads/ex1tm-0ymug.mp4" autoplay loop muted playsinline></video>
+              </label>
+              <label class="upload-drop testing-video-upload has-video" for="frameVideoInput3" aria-label="上传瓣架材料视频 3">
+                <input id="frameVideoInput3" type="file" accept="image/*,video/*" data-preview="frameVideoPreview3" />
+                <img id="frameVideoPreview3" alt="瓣架材料视频 3 预览" />
+                <video class="upload-video-preview" src="./assets/uploads/x4e6o-5jwsk.mp4" autoplay loop muted playsinline></video>
+              </label>
+              <label class="upload-drop testing-video-upload has-video" for="frameVideoInput4" aria-label="上传瓣架材料视频 4">
+                <input id="frameVideoInput4" type="file" accept="image/*,video/*" data-preview="frameVideoPreview4" />
+                <img id="frameVideoPreview4" alt="瓣架材料视频 4 预览" />
+                <video class="upload-video-preview" src="./assets/uploads/ytemn-juhvj.mp4" autoplay loop muted playsinline></video>
+              </label>
+            </div>
+            <div class="testing-chart-column">
+              <div class="testing-module testing-material-module">
+                <label class="upload-drop testing-material-upload has-image" for="frameMaterialInput" aria-label="上传复合瓣膜支架材料图片">
+                  <input id="frameMaterialInput" type="file" accept="image/*,video/*" data-preview="frameMaterialPreview" />
+                  <img id="frameMaterialPreview" src="./assets/复合瓣膜支架.png" alt="复合瓣膜支架材料图片预览" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-bottom" data-panel="mining">
+          <div class="panel-heading">
+            <span class="panel-index">3</span>
+            <h2>数据驱动的智能制造</h2>
+          </div>
+          <div class="mining-grid">
+            <div class="ai-model-card" role="button" tabindex="0" aria-pressed="false">
+              <label class="upload-drop ai-model-upload" for="aiModelUpload" aria-label="上传AI模型内容">
+                <input id="aiModelUpload" type="file" accept="image/*,video/*" data-preview="aiModelPreview" />
+                <img id="aiModelPreview" alt="AI模型上传预览" />
+                <span class="upload-placeholder">上传AI模型</span>
+              </label>
+              <div class="binary-orbit" aria-hidden="true">
+                <span class="binary-stream binary-top">010010 101101 001011 110010 010110 101001</span>
+                <span class="binary-stream binary-right">1010 0110 1101 0011 0101 1001</span>
+                <span class="binary-stream binary-bottom">110101 001101 101010 010011 111000 010101</span>
+                <span class="binary-stream binary-left">0101 1001 0010 1110 0111 1010</span>
+              </div>
+              <h3>AI模型</h3>
+              <label class="ai-upload-trigger" for="aiModelUpload">上传AI模型</label>
+              <div class="optimization-flow" aria-label="AI加速优化过程示意图">
+                <video class="ai-flow-video-effect" src="./assets/uploads/ai-optimization-effect.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+                <div class="flow-step">数据输入</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">代理模型</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">参数寻优</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">制造反馈</div>
+              </div>
+            </div>
+            <div class="optimization-table-card">
+              <h3>加速优化参数结果</h3>
+              <table id="optimizationTable"></table>
+            </div>
+            <div class="image-upload-card manufacturing-upload">
+              <h3>智能制造平台</h3>
+              <div class="manufacturing-media-row">
+                <label class="upload-drop manufacturing-drop has-image" for="manufacturingImageInput">
+                  <input id="manufacturingImageInput" type="file" accept="image/*,video/*" data-preview="manufacturingPreview" />
+                  <img id="manufacturingPreview" src="./assets/uploads/smart-manufacturing-platform.png" alt="智能制造平台图片预览" />
+                </label>
+                <div class="valve-icon-stack" aria-label="瓣膜外形图标">
+                  <span class="valve-outline valve-outline-a"></span>
+                  <span class="valve-outline valve-outline-b"></span>
+                  <span class="valve-outline valve-outline-c"></span>
+                  <span class="valve-outline valve-outline-d"></span>
+                </div>
+              </div>
+            </div>
+            <div class="image-upload-card bare-upload">
+              <label class="upload-drop no-title-upload has-image" for="extraImageInput">
+                <input id="extraImageInput" type="file" accept="image/*,video/*" data-preview="extraPreview" />
+                <img id="extraPreview" src="./assets/uploads/fatigue-device.gif" alt="疲劳装置动图预览" />
+              </label>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data.js?v=browser-comments-20260613-title-scale"></script>
+    <script src="./app.js?v=browser-comments-20260613-title-scale"></script>
+  </body>
+</html>

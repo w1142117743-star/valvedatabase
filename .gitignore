@@ -1,0 +1,17 @@
+.DS_Store
+outputs/
+
+# Local duplicate source videos kept for reference; the site uses assets/uploads copies.
+/6bwf8-kxjbc.mp4
+/ex1tm-0ymug.mp4
+/x4e6o-5jwsk.mp4
+/ytemn-juhvj.mp4
+
+# Unused large media exports.
+/assets/20260612-*.avi
+/assets/20260612-*.mp4
+/assets/uploads/valve-animation.gif
+/assets/uploads/valve-animation.mp4
+/assets/uploads/fatigue-device.mp4
+/assets/uploads/digital-twin-valve.png
+/assets/uploads/frame-stent-*.png
