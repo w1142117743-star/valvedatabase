@@ -671,28 +671,45 @@
     const grid = card.closest(".mining-grid");
     const effectVideo = $(".ai-flow-video-effect", card);
     let effectTimer = null;
+    let optimizationRunActive = false;
+    const revealOptimizationTable = () => {
+      if (grid) grid.classList.add("is-optimized");
+    };
+    const hideOptimizationTable = () => {
+      if (grid) grid.classList.remove("is-optimized");
+    };
+    const finishEffect = () => {
+      window.clearTimeout(effectTimer);
+      card.classList.remove("is-effect-playing");
+      if (!optimizationRunActive) return;
+      optimizationRunActive = false;
+      revealOptimizationTable();
+    };
     card.dataset.aiInteractionReady = "true";
     if (effectVideo) {
       effectVideo.muted = true;
       effectVideo.playsInline = true;
-      effectVideo.addEventListener("ended", () => {
-        card.classList.remove("is-effect-playing");
-      });
+      effectVideo.addEventListener("ended", finishEffect);
+      effectVideo.addEventListener("error", finishEffect);
     }
     const playEffectVideo = () => {
-      if (!effectVideo) return;
+      if (!effectVideo) {
+        revealOptimizationTable();
+        return;
+      }
       window.clearTimeout(effectTimer);
+      optimizationRunActive = true;
       card.classList.add("is-effect-playing");
       effectVideo.currentTime = 0;
       effectVideo.play().catch(() => {
-        card.classList.remove("is-effect-playing");
+        finishEffect();
       });
       effectTimer = window.setTimeout(() => {
-        if (effectVideo.paused || effectVideo.ended) card.classList.remove("is-effect-playing");
-      }, 5200);
+        finishEffect();
+      }, Number.isFinite(effectVideo.duration) && effectVideo.duration > 0 ? effectVideo.duration * 1000 + 350 : 12000);
     };
     const startRun = () => {
-      if (grid) grid.classList.add("is-optimized");
+      hideOptimizationTable();
       card.classList.remove("is-running");
       void card.offsetWidth;
       card.classList.add("is-running");

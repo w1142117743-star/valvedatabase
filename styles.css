@@ -3167,3 +3167,204 @@ h3 {
 .optimization-table-card table {
   font-size: 12px;
 }
+
+/* Browser annotation revisions: navigation, KPI scale, and delayed optimization reveal. */
+.dashboard-shell {
+  grid-template-rows: 100px 72px minmax(0, 1fr);
+}
+
+.control-strip {
+  min-height: 72px;
+  gap: 18px;
+}
+
+.segmented {
+  width: 900px;
+  gap: 16px;
+  padding: 8px;
+}
+
+.control-btn {
+  min-height: 50px;
+  padding: 0 22px;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.icon-btn {
+  width: 58px;
+  min-height: 50px;
+  font-size: 28px;
+}
+
+.dashboard-grid {
+  grid-template-rows: 552px 308px;
+}
+
+.kpi-row {
+  gap: 6px;
+}
+
+.kpi-card {
+  min-height: 78px;
+  padding: 9px 8px 8px;
+}
+
+.kpi-card span {
+  font-size: 17px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.kpi-card strong {
+  display: inline-block;
+  max-width: calc(100% - 20px);
+  margin-top: 7px;
+  padding-right: 0;
+  font-size: 23px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.kpi-card i {
+  top: auto;
+  right: 7px;
+  bottom: 9px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.mining-grid:not(.is-optimized) {
+  grid-template-columns: 970px 0 500px 330px;
+}
+
+.mining-grid:not(.is-optimized) .ai-model-card {
+  grid-column: 1 / 3;
+}
+
+.mining-grid:not(.is-optimized) .optimization-table-card {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  border-color: transparent;
+  background-color: rgba(1, 17, 34, 0);
+  box-shadow: none;
+  transform: translateX(-24px) scaleX(0.92);
+  transition:
+    opacity 0.22s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.5s,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.mining-grid.is-optimized .optimization-table-card {
+  animation: optimizationTableReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Browser comment revisions: keep the performance table inside its frame and show the full frame-material image. */
+.synthetic-merged .mini-table-wrap {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.synthetic-merged .mini-table-wrap h3 {
+  flex: 0 0 auto;
+  margin-bottom: 6px;
+}
+
+.synthetic-merged #syntheticTable {
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.synthetic-merged #syntheticTable th,
+.synthetic-merged #syntheticTable td {
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 2px 3px;
+  line-height: 1.06;
+  vertical-align: middle;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-overflow: clip;
+}
+
+.synthetic-merged #syntheticTable th:first-child,
+.synthetic-merged #syntheticTable td:first-child {
+  width: 36%;
+  text-align: left;
+}
+
+.testing-material-upload {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.testing-material-upload > img#frameMaterialPreview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+
+/* Browser comment revisions: centered material card labels and media. */
+.material-card,
+.upload-material-card {
+  text-align: center;
+}
+
+.material-card img,
+.upload-material-card img {
+  object-position: 50% 50%;
+}
+
+.material-card strong,
+.upload-material-card strong {
+  display: block;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+  text-overflow: clip;
+}
+
+/* Browser comment revisions: raise composite material row and reduce image cropping. */
+.panel-left-top {
+  grid-template-rows: 118px 104px minmax(0, 1fr);
+  gap: 3px;
+}
+
+.panel-left-top .material-upload-section {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+}
+
+.material-upload-section h3 {
+  flex: 0 0 auto;
+  margin-bottom: 3px;
+}
+
+.material-upload-section .upload-material-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+}
+
+.material-upload-section .upload-material-card img {
+  object-fit: contain;
+  object-position: 50% 50%;
+  background: rgba(1, 16, 32, 0.42);
+}

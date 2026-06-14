@@ -107,10 +107,10 @@ window.dashboardData = {
     { name: "Fiber-SIBS", values: [17.2, 4.7, 48.3, 92] }
   ],
   syntheticMaterials: [
-    { name: "硅基聚氨酯", share: 28, img: "material-ptfe.png", values: [12.3, 3.2, 28.5, 85] },
-    { name: "纤维增强聚氨酯", share: 26, img: "material-polyurethane.png", values: [10.1, 3.6, 34.2, 88] },
-    { name: "聚烯烃", share: 18, img: "material-peek.png", values: [15.6, 4.1, 95.3, 90] },
-    { name: "纤维增强聚烯烃", share: 14, img: "material-ppsu.png", values: [11.8, 3.4, 61.7, 86] }
+    { name: "聚氨酯TPU", share: 28, img: "material-ptfe.png", values: [12.3, 3.2, 28.5, 85] },
+    { name: "硅基聚氨酯Si-TPU", share: 26, img: "material-polyurethane.png", values: [10.1, 3.6, 34.2, 88] },
+    { name: "聚烯烃x-SIBS", share: 18, img: "material-peek.png", values: [15.6, 4.1, 95.3, 90] },
+    { name: "线性聚乙烯LLDPA", share: 14, img: "material-ppsu.png", values: [11.8, 3.4, 61.7, 86] }
   ],
   radar: {
     axes: ["耐久性", "生物相容性", "抗钙化", "柔韧性", "抗疲劳"],
@@ -124,10 +124,10 @@ window.dashboardData = {
     ]
   },
   bioMaterials: [
-    { name: "戊二醛交联瓣", subtitle: "GA-crosslinked", share: 38, img: "uploads/bio-valve-front.png", values: [3.6, 12.8, 88] },
-    { name: "双键交联瓣", subtitle: "Double-bond", share: 24, img: "uploads/bio-valve-stent.png", values: [3.4, 11.3, 87] },
-    { name: "戊二醛改性瓣", subtitle: "GA-modified", share: 22, img: "bio-decell.png", values: [3.8, 10.6, 90] },
-    { name: "胶原涂层瓣", subtitle: "Collagen-coated", share: 16, img: "bio-allograft.png", values: [3.2, 8.7, 84] }
+    { name: "双键交联复合", subtitle: "Double-bond", share: 38, img: "uploads/bio-valve-front.png", values: [3.6, 12.8, 88] },
+    { name: "纤维增强聚氨酯", subtitle: "Fiber-TPU", share: 24, img: "uploads/bio-valve-stent.png", values: [3.4, 11.3, 87] },
+    { name: "纤维增强聚烯烃", subtitle: "Fiber-SIBS", share: 22, img: "bio-decell.png", values: [3.8, 10.6, 90] },
+    { name: "涂层复合聚烯烃", subtitle: "Coated SIBS", share: 16, img: "bio-allograft.png", values: [3.2, 8.7, 84] }
   ],
   sourceShare: [
     { name: "牛心包", value: 38, color: "#ff475d" },
